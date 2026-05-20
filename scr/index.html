@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f2f1ee" id="themeColorMeta" />
+  <meta name="description" content="MARIA – CHAT" />
+
+  <title>MARIA</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <div class="sidebar closed" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Conversas</h3>
+      <button class="sidebar-close-btn" id="sidebarCloseBtn">✕</button>
+    </div>
+    <button class="sidebar-nova-conversa" id="sidebarNovaConversa">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      Nova Conversa
+    </button>
+    <ul class="sidebar-list"></ul>
+  </div>
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="icon-btn" id="menuBtn" title="Abrir conversas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <button class="btn-nova-conversa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="btn-nova-conversa-text">Nova Conversa</span>
+      </button>
+    </div>
+
+    <div class="topbar-center">
+      <span class="app-title">MARIA</span>
+    </div>
+
+    <div class="topbar-right">
+      <button class="icon-btn" id="shareBtn" title="Compartilhar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="themeBtn" title="Alternar tema">
+        <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41
+                   M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/>
+        </svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="chat-area" id="chatArea">
+
+    <div class="chat-home" id="chatHome">
+      <p class="greeting" id="greeting"></p>
+
+      <div class="input-box" id="inputBoxHome">
+        <textarea id="userInput" rows="1" placeholder="Pergunte qualquer coisa..."></textarea>
+        <div class="input-actions">
+          <button class="btn-mode">
+            <img src="brain.png" alt="" class="mode-icon" />
+            Analítico
+          </button>
+          <button class="btn-send" id="sendBtn" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"/>
+              <polyline points="5 12 12 5 19 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="suggestions">
+        <button class="suggestion-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Resumir peça
+        </button>
+        <button class="suggestion-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          Argumentos principais
+        </button>
+        <button class="suggestion-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Dispositivos legais
+        </button>
+        <button class="suggestion-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Pedido principal
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-conversation" id="chatConversation">
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <div class="chat-input-footer">
+        <div class="input-box">
+          <textarea id="userInputChat" rows="1" placeholder="Pergunte qualquer coisa..."></textarea>
+          <div class="input-actions">
+            <button class="btn-mode">
+              <img src="brain.png" alt="" class="mode-icon" />
+              Analítico
+            </button>
+            <button class="btn-send active" id="sendBtnChat" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"/>
+                <polyline points="5 12 12 5 19 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
